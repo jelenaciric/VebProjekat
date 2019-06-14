@@ -1,0 +1,85 @@
+body, html{
+  height:100%;
+  margin:0;
+  font-size:16px;
+  font-family:"Lato", sans-serif;
+  font-weight:400;
+  line-height:1.8em;
+  color:rgb(0, 0, 0);
+}
+
+.slika1, .slika2, .slika3{
+  position:relative;
+  opacity:0.87;
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+
+.slika1{
+  background-image:url('../images/slika11.jpg');
+  min-height:100%;
+  min-width:100%;
+}
+
+.slika2{
+  background-image:url('../images/slika22.jpg');
+  min-height:400px;
+  min-width:100%;
+}
+
+.slika3{
+  background-image:url('../images/slika33.jpg');
+  min-height:400px;
+  min-width:100%;
+}
+
+.section{
+  text-align:center;
+  padding:50px 80px;
+}
+
+.section-light{
+  background-color:rgb(22, 22, 22);
+  color:white;
+}
+
+.section-dark{
+  background-color:rgb(22, 22, 22);
+  color:#ddd;
+}
+
+.ptext{
+  position:absolute;
+  top:50%;
+  width:100%;
+  text-align:center;
+  color:#000;
+  font-size:27px;
+  letter-spacing:8px;
+  text-transform:uppercase;
+}
+
+.ptext .border{
+  background-color:rgb(22, 22, 22);
+  color:#fff;
+  padding:20px;
+}
+
+.ptext .border.trans{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+body {
+  padding-top: 54px;
+}
+
+@media screen and(min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
