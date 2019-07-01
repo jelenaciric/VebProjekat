@@ -1,3 +1,4 @@
+<?php include('backend.php') ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,24 +24,25 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span style="color:white" class="glyphicon glyphicon-th"></span>
                     </button>
-                <a class="navbar-brand" href="index.html">Sephora</a>
+                <a class="navbar-brand" href="index.php">Sephora</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                <li><a href="shop.html"><span class="glyphicon glyphicon-shopping-cart"></span> Shop</a></li>
+                <li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li><a href="shop.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shop</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                <li><a href="registration.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="registration.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
                 </div>
             </div>
         </nav>
 
         <div class="container">
-            <div class="col-lg-6 col-lg-offset-3">
-            <form>
+            <div class="col-lg-7 col-lg-offset-4">
+            <form action="login.php" method="POST">
+                <div id="error"></div>
                 <div id="error"></div>
                 <div class="form-group">
                     <label for='username'>Username</label>

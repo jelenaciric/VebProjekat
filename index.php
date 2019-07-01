@@ -1,3 +1,12 @@
+<?php
+  session_start();
+  
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: login.php");
+  }
+?>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -23,20 +32,33 @@
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span style="color:white" class="glyphicon glyphicon-th"></span>
               </button>
-            <a class="navbar-brand" href="index.html">Sephora</a>
+            <a class="navbar-brand" href="index.php">Sephora</a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html"> <span class="glyphicon glyphicon-home	
+            <li class="active"><a href="index.php"> <span class="glyphicon glyphicon-home	
               "></span> Home</a></li>
             <li><a href="#aboutus"><span class="glyphicon glyphicon-user"></span> About Us</a></li>
-            <li><a href="shop.html"><span class="glyphicon glyphicon-shopping-cart"></span> Shop</a></li>
+            <li><a href="shop.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shop</a></li>
             <li><a href="#contact"><span class="glyphicon glyphicon-envelope"></span> Contact Us</a></li>
           </ul>
+
+          <?php if(!isset($_SESSION['username'])) : ?>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="registration.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="registration.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
+          <?php endif ?>
+          <?php if(isset($_SESSION['username'])) : ?>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a><span class='glyphicon glyphicon-user'></span><?php echo $_SESSION['username']; ?></a></li>
+              <?php if($_SESSION['username']=="admin") : ?>
+                <li><a href='admin.php'><span class='glyphicon glyphicon-wrench'></span>Settings</a></li>
+              <?php endif ?>
+              <li><a href="index.php?logout='1'"><span class='glyphicon glyphicon-log-out'></span>LogOut</a></li>
+            </ul>
+          <?php endif ?>
+          
         </div>
       </div>
     </nav>
