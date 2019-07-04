@@ -48,7 +48,7 @@
                     <div>
                         <label for='password'>Password (one digit)</label>
                         <br>
-                        <input id='password' placeholder="Enter Password" type="password">
+                        <input id='password' name='password' placeholder="Enter Password" type="password">
                     </div>
                     <div>
                         <label for='email'>E-mail</label>

@@ -6,7 +6,7 @@ $email    = "";
 $usertype = "";
 $errors = array(); 
 
-$connection = mysqli_connect('localhost','root',"",'projekat');
+$connection = mysqli_connect("localhost","root","","projekat");
 if (mysqli_connect_errno())
   {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -34,7 +34,7 @@ if (mysqli_connect_errno())
         }   
             $password = md5($password);
       
-            $query1 = "INSERT INTO korisnici (user_email, user_name, user_password,user_type) VALUES ('$email', '$username', '$password', 0)";
+            $query1 = "INSERT INTO korisnici (user_email, user_name, user_password) VALUES ('$email', '$username', '$password')";
             mysqli_query($connection, $query1);
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "You are now logged in";
@@ -54,16 +54,8 @@ if (mysqli_connect_errno())
         if (count($errors) == 0) {
             $password = md5($password);
             $query = "SELECT * FROM korisnici WHERE user_name='$username' AND user_password='$password'";
-            $results = mysqli_query($connection, $query);
-            if (mysqli_num_rows($results) == 1) {
-            $type="SELECT user_type FROM korisnici WHERE user_name='$username' AND user_password='$password'";
-            $usertype=mysqli_fetch_array(mysqli_query($connection,$type));
-                if($usertype[0]=="1"){
-                    $_SESSION['usertype']="1";
-                }
-                else{
-                    $_SESSION['usertype']="0";
-                }
+            $results = mysqli_fetch_array(mysqli_query($connection, $query));
+            if ($results) {
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "You are now logged in";
             header('location: index.php');

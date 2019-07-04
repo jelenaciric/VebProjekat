@@ -47,12 +47,12 @@
                 <div class="form-group">
                     <label for='username'>Username</label>
                     <br>
-                    <input id='username' placeholder="Enter Username" type="text" required name="username">
+                    <input id='username' name='username' placeholder="Enter Username" type="text" required name="username">
                 </div>
                 <div class="form-group">
                     <label for='password'>Password</label>
                     <br>
-                    <input id='password' placeholder="Enter Password" type="password" required name="password">
+                    <input id='password' name='password' placeholder="Enter Password" type="password" required name="password">
                 </div>
                 <div>
                     <input id="submit_button" name = "login_confirm" type="submit" value="Log in" >
